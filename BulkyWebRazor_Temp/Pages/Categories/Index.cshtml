@@ -1,8 +1,6 @@
 ﻿@page
 @model BulkyWebRazor_Temp.Pages.Categories.IndexModel
 
-<h1>Category List</h1>
-
 <div class="container">
     <div class="row pt-4 pb-23">
         <div class="col-6">
@@ -11,12 +9,11 @@
             </h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-page="Categories/create" class="btn btn-primary">
+            <a asp-page="/Categories/Create" class="btn btn-primary">
                 <i class="bi bi-plus-lg"></i> Create New Category
             </a>
         </div>
     </div>
-
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -32,14 +29,14 @@
             @foreach (var obj in Model.CategoryList.OrderBy(u => u.DisplayOrder))
             {
                 <tr>
-                    <td>@obj.Name</td>
+                    <td>@obj.Name</td>s
                     <td>@obj.DisplayOrder</td>
                     <td>
                         <div>
-                            <a asp-page="Categories/edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+                            <a asp-page="/Categories/Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
                                 <i class="bi bi-pencil-square"></i>Edit
                             </a>
-                            <a asp-page="Categories/delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                            <a asp-page="/Categories/Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
                                 <i class="bi bi-trash"></i>Delete
                             </a>
                         </div>
