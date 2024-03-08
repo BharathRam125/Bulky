@@ -1,6 +1,6 @@
 ﻿namespace Bulky.Utility
 {
-    public class Utility
+    public static class SD
     {
 
     }
