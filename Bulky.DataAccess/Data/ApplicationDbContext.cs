@@ -15,13 +15,49 @@ namespace Bulky.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Company>().HasData(
+                new Company { 
+                    Id = 1, 
+                    Name = "Tech solutions",
+                    StreetAddress = "119 Tech st", 
+                    City="Tech City", 
+                    State="IL",
+                    PostalCode="11111", 
+                    PhoneNumber="122222222" 
+                },
+
+                new Company
+                {
+                     Id = 2,
+                     Name = "Readers club",
+                     StreetAddress = "111 Tech st",
+                     City = "T City",
+                     State = "IL",
+                     PostalCode = "11211",
+                     PhoneNumber = "128456422"
+                },
+
+                 new Company
+                 {
+                      Id = 3,
+                      Name = "vivid books",
+                      StreetAddress = "1141 club st",
+                      City = "y city",
+                      State = "NY",
+                      PostalCode = "17111",
+                      PhoneNumber = "9854512282"
+                 }
+
+               );
+
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "SciFi",DisplayOrder = 1 },
+                new Category { Id = 1, Name = "SciFi", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 3, Name = "Drama", DisplayOrder = 1 }
                );
@@ -112,6 +148,7 @@ namespace Bulky.DataAccess.Data
                     ImageUrl = ""
                 }
                 );
+            
         }
     }
 }
